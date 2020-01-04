@@ -83,10 +83,12 @@ html_copy_source = False
 # html_show_sourcelink = True
 
 html_context = {
-    "display_github": True,  # Add 'Edit on Github' link instead of 'View page source'
+    "display_github": False,  # Add 'Edit on Github' link instead of 'View page source'
     "github_user": "luftsport",
     "github_repo": "test",
     "github_version": "master",
+    'github_banner': True,
+    'show_related': False,
 }
 
 # Theme options are theme-specific and customize the look and feel of a theme
