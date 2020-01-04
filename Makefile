@@ -31,3 +31,26 @@ gh-pages:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+# How to setup repo
+# https://nikhilism.com/post/2012/automatic-github-pages-generation-from/
+# # 1. Config repo
+# cd repo
+# # Make a branch use gh-pages magic github
+# git checkout --orphan gh-pages
+# # remove everything except .gitignore
+# git rm -rf .
+# # Make a commit?
+# echo "First commit" > index.html
+# git add --all
+# git commit -m "Just to create the branch."
+# git push origin gh-pages
+#
+# # 2. Config makefile (this)
+# # make sure it checks out everything needed for document generation
+#
+# # 3. Templates
+# # Add layout options to layout - github ribbon
+# # Add footer to add footer for repo
+#
+# # 4. Can still build in master if needed!!! 
