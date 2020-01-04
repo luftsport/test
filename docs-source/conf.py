@@ -14,8 +14,8 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../'))
 
+sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
@@ -27,7 +27,6 @@ author = 'Einar Huseby'
 version = ''
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -73,7 +72,6 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -82,7 +80,14 @@ pygments_style = None
 html_theme = 'sphinx_rtd_theme'
 
 html_copy_source = False
-html_show_sourcelink = True
+# html_show_sourcelink = True
+
+html_context = {
+    "display_github": True,  # Add 'Edit on Github' link instead of 'View page source'
+    "github_user": "luftsport",
+    "github_repo": "test",
+    "github_version": "master",
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -110,7 +115,6 @@ html_static_path = ['_static']
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'NIFIntegrationdoc'
-
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -140,7 +144,6 @@ latex_documents = [
      'Einar Huseby', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
@@ -149,7 +152,6 @@ man_pages = [
     (master_doc, 'nifintegration', 'NIF Integration Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -161,7 +163,6 @@ texinfo_documents = [
      author, 'NifIntegration', 'One line description of project.',
      'Miscellaneous'),
 ]
-
 
 # -- Options for Epub output -------------------------------------------------
 
@@ -179,7 +180,6 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
 
 # -- Extension configuration -------------------------------------------------
 
