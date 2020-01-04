@@ -18,7 +18,8 @@ gh-pages:
 	rm -rf $(SOURCEDIR) $(BUILDDIR)
 	git checkout master $(SOURCEDIR)
 	git reset HEAD
-	make html
+	# make html
+	sphinx-build -b html ./docs-source ./docs
 	mv -fv $(BUILDDIR)/html/* ./
 	rm -rf $(SOURCEDIR) $(BUILDDIR)
 	git add -A
