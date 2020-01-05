@@ -15,14 +15,16 @@ help:
 .PHONY: help Makefile
 
 gh-pages:
+	# Build docs!
+	sphinx-build -b html ./docs-source ./docs
 	git checkout gh-pages
 	# rm -rf $(SOURCEDIR) $(BUILDDIR)
-	git checkout master $(SOURCEDIR)
+	#git checkout master $(SOURCEDIR)
 	git reset HEAD
 	# make html
-	sphinx-build -b html ./docs-source ./
-	rm -rf $(SOURCEDIR)
-	rm -rf $(BUILDDIR)
+	git rm .
+	#rm -rf $(SOURCEDIR)
+	#rm -rf $(BUILDDIR)
 	git add -A
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages ; git checkout master
 
