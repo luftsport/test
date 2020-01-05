@@ -18,15 +18,24 @@ gh-pages:
 	# Build docs!
 	sphinx-build -b html ./docs-source ./docs
 	git checkout gh-pages
-	# rm -rf $(SOURCEDIR) $(BUILDDIR)
-	#git checkout master $(SOURCEDIR)
-	git reset HEAD
+	ifeq( $(git branch | grep "*" | sed "s/\* //"),"gh-pages")
+    # Remove all
+    git ls-files -z | xargs -0 rm -f
+    git rm .
+    git reset HEAD
+    cp -ar docs/* .
+    git add -A
+    git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages ; git checkout master
+    endif
+
+    # rm -rf $(SOURCEDIR) $(BUILDDIR)
+    #git checkout master $(SOURCEDIR)
+
 	# make html
-	git rm .
+
 	#rm -rf $(SOURCEDIR)
 	#rm -rf $(BUILDDIR)
-	git add -A
-	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages ; git checkout master
+
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
