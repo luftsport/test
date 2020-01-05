@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('../'))
 # -- Project information -----------------------------------------------------
 
 project = 'NIF Integration'
-copyright = '2018, Norges Luftsportforbund'
+copyright = 'Norges Luftsportforbund'
 author = 'Einar Huseby'
 
 # The short X.Y version
@@ -78,18 +78,16 @@ pygments_style = None
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-
+# html_theme = 'alabaster'
 html_copy_source = False
-# html_show_sourcelink = True
+html_show_sourcelink = False
 
+# Custom variables - for _templates/layout/html github repo
 html_context = {
-    "display_github": False,  # Add 'Edit on Github' link instead of 'View page source'
-    "github_user": "luftsport",
-    "github_repo": "test",
-    "github_version": "master",
-    'github_banner': True,
-    'show_related': False,
+    'github_user': 'luftsport',
+    'github_repo': 'nif-integration'
 }
+
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
